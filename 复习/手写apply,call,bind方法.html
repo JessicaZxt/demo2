@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+</body>
+
+<script src="./手写apply,call,bind方法.js"></script>
+<script type="text/javascript">
+  let name = '小花'
+  let a = {
+    name: '小明',
+    say: function () {
+      console.log(this.name);
+    }
+  }
+  let b = {
+    name: '小王'
+  }
+  a.say()
+  a.say.myCall(b)
+
+  let arr = [1, 2, 3]
+
+  const add = function (a, b, c) {
+    console.log('和:', a + b + c);
+  }
+
+  add.myApply(null, arr)
+
+  let fn = add.myBind(null, ...arr)
+  fn()
+
+  let fn1 = a.say.myBind(b)
+  fn1()
+</script>
+
+</html>

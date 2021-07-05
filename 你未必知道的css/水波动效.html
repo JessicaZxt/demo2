@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #box {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 1px solid #000;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+        animation: move linear infinite;
+    }
+
+    #box>div {
+        width: 200px;
+        height: 200px;
+        border-radius: 37%;
+        position: absolute;
+    }
+
+    .one {
+        top: 66px;
+        left: -13px;
+        background-color: rgba(145, 195, 218, 0.6);
+        animation: inherit;
+        animation-duration: 5s;
+    }
+
+    .two {
+        top: 86px;
+        left: -12px;
+        background-color: rgba(145, 195, 218, 0.4);
+        animation: inherit;
+        animation-duration: 7s;
+    }
+
+    .three {
+        top: 75px;
+        left: -24px;
+        background-color: rgba(145, 195, 218, 0.3);
+        animation: inherit;
+        animation-duration: 9s;
+    }
+
+    @keyframes move {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<body>
+    <div id="box">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      min-height: 100vh;
+      min-width: 100vw;
+    }
+
+    .header,
+    .footer {
+      width: 100%;
+      height: 50px;
+      background-color: gray;
+    }
+
+    .content {
+      height: 500px;
+      overflow: hidden;
+      padding: 0 200px;
+    }
+
+    .left,
+    .right {
+      width: 200px;
+      height: 100%;
+      float: left;
+      background-color: pink;
+    }
+
+    .left {
+      margin-left: -100%;
+      /* position: relative;
+      left: -200px; */
+    }
+
+    .right {
+      margin-left: -200px;
+      /* position: relative;
+      left: 200px; */
+    }
+
+    .middle {
+      background-color: green;
+      float: left;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div class="header">header</div>
+    <div class="content">
+      <div class="middle">
+        middle
+      </div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+    <div class="footer">footer</div>
+  </div>
+</body>
+
+</html>

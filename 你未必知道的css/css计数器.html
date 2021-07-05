@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    section {
+        overflow: hidden;
+        margin-top: 10px;
+        background-color: slateblue;
+        counter-increment: bb;
+    }
+
+    section::before {
+        content: '第'counter(bb)'行';
+        float: left;
+    }
+
+    section div {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin-left: 5px;
+        background-color: skyblue;
+        counter-increment: aa;
+    }
+
+    section div::before {
+        content: counter(bb)'.'counter(aa);
+        float: left;
+    }
+
+    #box .num {
+        float: left;
+        margin-top: 20px;
+        margin-right: 5px;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background-color: pink;
+        counter-increment: dd;
+        position: relative;
+    }
+
+    #box .num::before {
+        content: counter(dd);
+        position: absolute;
+        top: 5px;
+        left: 10px;
+
+    }
+</style>
+
+<body>
+    <section>
+        <div></div>
+    </section>
+    <section>
+        <div></div>
+        <div></div>
+    </section>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+
+    <div id="box">
+        <div class="num"></div>
+        <div class="num"></div>
+        <div class="num"></div>
+        <div class="num"></div>
+        <div class="num"></div>
+    </div>
+</body>
+
+</html>

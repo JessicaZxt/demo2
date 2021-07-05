@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        margin-top: 20px;
+    }
+
+    input {
+        width: 200px;
+        outline: none;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    input:placeholder-shown::placeholder {
+        color: transparent;
+    }
+
+    input:focus {
+        border: 1px solid pink;
+    }
+
+    label {
+        position: absolute;
+        left: 26px;
+        top: 28px;
+        background: #fff;
+        font-size: 17px;
+        color: #ccc;
+        transition: all .3s;
+    }
+
+    input:not(:placeholder-shown) {
+        border: 1px solid pink;
+    }
+
+    input:not(:placeholder-shown)~label,
+    input:focus~label {
+        transform: scale(0.75) translate(0, -26px);
+        background-color: #fff;
+        color: pink;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <input type="text" placeholder="邮箱">
+        <label>邮箱</label>
+        <button onclick="reset()">重置</button>
+    </div>
+
+    <a href="http://crm.gcnao.cn:7070/TenantInfo/468a1d70c641419ab1037e170cfc99db/UpLoad/8bbbe030f1ce41ebad4b7a8372d07bae.jpg"
+        target="_blank" download="">1111</a>
+</body>
+
+<script type="text/javascript">
+    function reset() {
+        document.getElementsByTagName('input')[0].value = ''
+    }
+    document.getElementsByTagName('a')[0].onclick = function () {
+        let ele = document.getElementsByTagName('a')[0]
+        ele.target = "_blank"
+    }
+
+    new Promise((resolve, reject) => {
+        reject(11)
+    }).catch(err => {
+        console.log('err', err);
+
+    })
+
+</script>
+
+</html>

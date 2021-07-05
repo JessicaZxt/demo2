@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    ul {
+        display: flex;
+    }
+
+    li {
+        position: relative;
+        padding: 10px;
+        font-size: 20px;
+        list-style: none;
+        color: darkviolet;
+        cursor: pointer;
+        /* transition: all .3s; */
+    }
+
+    li::before {
+        position: absolute;
+        width: 0;
+        height: 100%;
+        border-bottom: 2px solid transparent;
+        content: '';
+        left: 100%;
+        top: 0;
+        transition: all .3s;
+    }
+
+    li:hover+::before {
+        left: 0;
+    }
+
+    li:hover::before {
+        width: 100%;
+        border-bottom: 2px solid red;
+        left: 0;
+        transition-delay: 100ms;
+    }
+</style>
+
+<body>
+    <ul>
+        <li>首页</li>
+        <li>购物栏目</li>
+        <li>服饰服装</li>
+        <li>家电城</li>
+        <li>婴儿用品</li>
+        <li>购物车</li>
+    </ul>
+</body>
+
+</html>

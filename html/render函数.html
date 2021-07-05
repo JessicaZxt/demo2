@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    var app = document.getElementById('app')
+    var tagObj = {
+        tag: 'ul',
+        props: {
+            class: 'a',
+            id: 'a1',
+            on: {
+                'click': () => {
+                    console.log('ul')
+                }
+            }
+        },
+        children: [
+            {
+                tag: 'li',
+                props: {
+                    class: 'li1',
+                    id: 'li1',
+                    on: {
+                        'click': () => {
+                            console.log('li')
+                        }
+                    }
+                },
+                children: '1'
+            },
+            {
+                tag: 'li',
+                props: {
+                    class: 'li1',
+                    id: 'li1',
+                    on: {
+                        'click': () => {
+                            console.log('li')
+                        }
+                    }
+                },
+                children: '2'
+            }
+        ]
+    }
+    function render(option) {
+        var tag = document.createElement(option.tag)
+        if (Object.prototype.toString.call(option.props) === '[object Object]' && option.props !== null) {
+            for (const key in option.props) {
+                if (key === 'on') {
+                    const funObj = option.props['on']
+                    for (const funName in funObj) {
+                        tag.addEventListener(funName, funObj[funName])
+                    }
+                } else {
+                    tag.setAttribute(key, option.props[key])
+                }
+            }
+        }
+        if (option.children instanceof Array) {
+            option.children.forEach(element => {
+                tag.appendChild(render(element))
+            })
+        } else {
+            tag.textContent = option.children
+        }
+        return tag
+    }
+
+    app.appendChild(render(tagObj))
+</script>
+
+</html>

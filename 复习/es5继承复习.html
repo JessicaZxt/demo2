@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+  /* 实例继承 */
+
+  // function Parent(name) {
+  //   this.name = name
+  //   this.arr = [1, 2, 3]
+  // }
+
+  // Parent.prototype.say = function () {
+  //   console.log('我的名字是' + this.name);
+  // }
+
+  // function Child(name, age) {
+  //   this.name = name
+  //   this.age = age
+  //   this.mySay = function () {
+  //     console.log('我的名字是' + this.name + '我的年龄是' + this.age);
+  //   }
+  // }
+
+  // Child.prototype = new Parent()
+  // const c1 = new Child('tom', 20)
+  // const c2 = new Child('lisa', 18)
+  // c1.say() // 我的名字是tom
+  // c1.mySay() // 我的名字是tom我的年龄是20
+
+  // c1.arr.push(4)
+  // console.log(c1.arr); // [1, 2, 3, 4]
+  // console.log(c2.arr); // [1, 2, 3, 4]
+  // console.log(c);
+
+  /* 构造继承 */
+  // function Parent(name) {
+  //   this.name = name
+  //   this.arr = [1, 2, 3]
+  // }
+
+  // Parent.prototype.say = function () {
+  //   console.log('我的名字是' + this.name);
+  // }
+
+  // function Child(name, age) {
+  //   this.age = age
+  //   Parent.call(this, name)
+  //   this.mySay = function () {
+  //     console.log('我的名字是' + this.name + '我的年龄是' + this.age);
+  //   }
+  // }
+
+  // const c1 = new Child('小明', 20)
+  // const c2 = new Child('小花', 18)
+  // // c1.say() // 报错
+  // c1.mySay() // 我的名字是小明我的年龄是20
+  // c2.mySay() // 我的名字是小花我的年龄是18
+
+  // c1.arr.push(4)
+  // console.log(c1.arr); // [1, 2, 3, 4]
+  // console.log(c2.arr); // [1, 2, 3]
+
+  /* 混合继承 */
+  // function Parent(name) {
+  //   this.name = name
+  //   this.arr = [1, 2, 3]
+  // }
+  // Parent.prototype.say = function () {
+  //   console.log('我的名字是' + this.name);
+  // }
+
+  // function Child(name, age) {
+  //   Parent.call(this, name)
+  //   this.age = age
+  //   this.mySay = function () {
+  //     console.log('我的名字是' + this.name + '我的年龄是' + this.age);
+  //   }
+  // }
+
+  // Child.prototype = new Parent()
+
+  // const c1 = new Child('小明', 20)
+  // const c2 = new Child('小花', 18)
+  // c1.say() // 我的名字是小明
+  // c1.mySay() // 我的名字是小明我的年龄是20
+  // c2.mySay() // 我的名字是小花我的年龄是18
+
+  // c1.arr.push(4)
+  // console.log(c1.arr); // [1, 2, 3, 4]
+  // console.log(c2.arr); // [1, 2, 3]
+
+
+</script>
+
+</html>

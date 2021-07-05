@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    var str = '(()'
+    /* format()
+    function format(){
+        console.log(str.split(''))
+    } */
+
+    // const validBraces = function(str) {
+    //         // 匹配括号
+    //         let brackets = str.match(/[\[\]\(\)\{\}]/g),
+    //             arr = [],
+    //             symbol;
+    //         for (var i in brackets) {
+    //             switch (brackets[i]) {
+    //                 case '(':
+    //                     arr.push('(');
+    //                     break;
+    //                 case '[':
+    //                     arr.push('[');
+    //                     break;
+    //                 case '{':
+    //                     arr.push('{');
+    //                     break;
+    //                 case ')':
+    //                     symbol = arr.pop();
+    //                     if (symbol !== '(') return false;
+    //                     break;
+    //                 case ']':
+    //                     symbol = arr.pop();
+    //                     if (symbol !== '[') return false;
+    //                     break;
+    //                 case '}':
+    //                     symbol = arr.pop();
+    //                     if (symbol !== '{') return false;
+    //                     break
+
+    //             }
+    //         }
+    //         // 当存在 (() 这样的情况时, 上面的都能通过, 最后需要检测一下arr的长度
+    //         console.log(arr)
+    //         return arr.length > 0 ? false : true;
+    //     }
+    //     // 测试
+    // console.log(validBraces(str));
+
+    let obj = {
+        'a': 11,
+        'b': 22
+    }
+    console.log({ ...obj, 'c': 33 })
+    let arr = [{a:0.2},{a:0.6}]
+    let a = arr.reduce((pre,cur)=>Number(pre.a)+Number(cur.a))
+    console.log(a)
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+  class Parent {
+    constructor(name) {
+      this.name = name
+      this.arr = [1, 2, 3]
+    }
+    say() {
+      console.log('Parent:' + this.name);
+    }
+  }
+
+  class Child extends Parent {
+    constructor(name, age) {
+      super(name)
+      this.age = age
+    }
+    mySay() {
+      console.log('Child:' + this.name + this.age);
+    }
+  }
+
+  const c1 = new Child('tom', 20)
+  c1.say()
+  c1.mySay()
+  console.log(c1.arr);
+
+</script>
+
+</html>

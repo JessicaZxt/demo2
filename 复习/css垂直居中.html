@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  .box1 {
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+  }
+
+  .box2 {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+  }
+
+  /* 定位加负margin */
+
+  /* .parent {
+    position: relative;
+  }
+
+  .child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+  } */
+
+  /* 定位加margin */
+
+  /* .parent {
+    position: relative;
+  }
+
+  .child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+  } */
+
+  /* 定位加calc */
+
+  .parent {
+    position: relative;
+  }
+
+  .child {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+  }
+
+  /* 定位加transform */
+
+  /* .parent {
+    position: relative;
+  }
+
+  .child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } */
+
+  /* flex */
+
+  /* .parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+
+  /* table-cell */
+
+  /* .parent {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .child {
+    display: inline-block;
+  } */
+</style>
+
+<body>
+  <div class="parent box1">
+    <div class="child box2">123123</div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        display: flex;
+    }
+
+    .box div {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        margin-right: 10px;
+        transition: all .5s;
+    }
+
+    .box div:target {
+        width: 300px;
+        background-color: slateblue;
+    }
+</style>
+
+<body>
+    <a href="#1">1</a>
+    <a href="#2">2</a>
+    <a href="#3">3</a>
+    <div class="box">
+        <div id="1"></div>
+        <div id="2"></div>
+        <div id="3"></div>
+    </div>
+</body>
+
+</html>

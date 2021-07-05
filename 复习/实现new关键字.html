@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  // class Animals {
+  //   constructor(name) {
+  //     this.name = name
+  //   }
+  // }
+
+  function Animals(name) {
+    this.name = name
+  }
+  Animals.prototype.say = function () {
+    console.log(1111);
+  }
+
+  let a1 = new Animals('dog')
+
+  a1.say()
+  console.log(a1.name);
+
+  /* 
+  new做了什么？
+  1. 创建一个全新的对象，这个对象的__proto_要指向构造函数的原型
+  2. 执行构造函数
+  3. 返回值为object类型 则作为new方法返回值返回，否则返回上述全新对象
+  
+  */
+
+  // function mockNew(parent, ...rest) {
+  //   let child = Object.create(parent.prototype)
+  //   let result = parent.apply(child, rest)
+  //   return typeof result === 'object' ? result : child
+  // }
+
+  function mockNew() {
+    const Construtor = [].shift.call(arguments)
+    const obj = {}
+    obj.__proto__ = Construtor.prototype
+    const result = Construtor.apply(obj, arguments)
+    return typeof result === 'object' ? result : obj
+  }
+
+
+  let a2 = mockNew(Animals, 'dog')
+  console.log(a2);
+  a2.say()
+  console.log(a2.name);
+
+
+</script>
+
+</html>

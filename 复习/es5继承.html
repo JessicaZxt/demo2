@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 实例继承: 子类构造函数的原型 = 父类的实例，但是父级的属性会被共享*/
+    /* function parent(name) {
+      this.name = name
+      this.arr = [11, 22, 33]
+    }
+
+    parent.prototype.say = function () {
+      console.log(this.name);
+    }
+
+    function son(name) {
+      this.name = name
+    }
+    son.prototype = new parent()
+    var son1 = new son('小明')
+    var son2 = new son('小花')
+    son1.arr.push(44)
+    console.log(son1);
+    console.log(son1.arr);
+    console.log(son2.arr);
+    son1.say()
+    son2.say() */
+
+    /* 构造继承: 在子类构造函数里面去调用父类的属性，解决属性共用的问题，但是调用不到父类原型上的方法 */
+    // function parent(type) {
+    //   this.type = type
+    //   this.arr = [11, 22, 33]
+    // }
+
+    // parent.prototype.say = function () {
+    //   console.log(this.name);
+    // }
+
+    // function son(name, type) {
+    //   this.name = name
+    //   parent.call(this, type)
+    // }
+
+    // var son1 = new son('小明', 'a')
+    // var son2 = new son('小花', 'b')
+
+
+    // son1.arr.push(44)
+    // console.log(son1.arr);
+    // console.log(son1);
+    // console.log(son2.arr);
+    // son1.say()
+    // son2.say()
+
+    /* 混合继承：结合实例继承和构造继承 */
+    // function parent(type) {
+    //   this.type = type
+    //   this.arr = [11, 22, 33]
+    // }
+
+    // parent.prototype.say = function () {
+    //   console.log(this.name);
+    // }
+
+    // function son(name, type) {
+    //   this.name = name
+    //   parent.call(this, type)
+    // }
+
+    // son.prototype = new parent()
+
+    // var son1 = new son('小明', 'a')
+    // var son2 = new son('小花', 'b')
+
+
+    // son1.arr.push(44)
+    // console.log(son1.arr);
+    // console.log(son1);
+    // console.log(son2.arr);
+    // son1.say()
+    // son2.say()
+
+    /* 寄生继承  存在引用类型共享的问题 */
+    // var obj = {
+    //   name: '小明',
+    //   sex: '男',
+    //   arr: [1, 2, 3]
+    // }
+
+    // function parent(obj) {
+    //   function f() { }
+    //   f.prototype = obj
+    //   return new f()
+    // }
+
+    // function createFn(obj) {
+    //   var o = parent(obj)
+    //   o.say = function () {
+    //     console.log(this.name);
+    //   }
+    //   return o
+    // }
+
+    // var son1 = createFn(obj)
+    // var son2 = createFn(obj)
+    // console.log(son1, son2);
+    // son1.name = '小花'
+    // son1.arr.push(44)
+    // console.log(son1.arr, son2.arr)
+    // son1.say()
+    // son2.say()
+
+    /* 寄生组合继承 */
+
+    function extend(obj) {
+      function f() { }
+      f.prototype = obj
+      return new f()
+    }
+
+    function create(son, parent) {
+      const p = extend(parent.prototype)
+      console.log(p);
+      p.construtor = son
+      son.prototype = p
+    }
+
+    function parent(name) {
+      this.name = name
+      this.arr = [1, 2, 3]
+    }
+    parent.prototype.say = function () {
+      console.log(this.name);
+    }
+    function son(name) {
+      this.a = '123'
+      parent.call(this, name)
+    }
+    create(son, parent)
+    var son1 = new son('小花')
+    var son2 = new son('小明')
+    son1.say()
+    son1.arr.push(44)
+    son2.arr.push(55)
+    console.log(son, son1, son2)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 320px;
+        height: 480px;
+        margin: 200px auto;
+        transform-style: preserve-3d;
+        animation: zhuan 10s linear infinite;
+    }
+
+    img {
+        position: absolute;
+        width: 320px;
+        height: 480px;
+    }
+
+    img:nth-child(1) {
+        transform: translateZ(-500px);
+    }
+
+    img:nth-child(2) {
+        transform: translateZ(500px);
+    }
+
+    img:nth-child(3) {
+        transform: rotateY(45deg) translateZ(500px);
+    }
+
+    img:nth-child(4) {
+        transform: rotateY(-45deg) translateZ(-500px);
+    }
+
+    img:nth-child(5) {
+        transform: rotateY(45deg) translateZ(-500px);
+    }
+
+    img:nth-child(6) {
+        transform: rotateY(-45deg) translateZ(500px);
+    }
+
+    img:nth-child(7) {
+        transform: rotateY(90deg) translateZ(500px);
+    }
+
+    img:nth-child(8) {
+        transform: rotateY(90deg) translateZ(-500px);
+    }
+
+    @keyframes zhuan {
+        0% {
+            transform: rotateX(-15deg) rotateY(0);
+        }
+
+        100% {
+            transform: rotateX(-15deg) rotateY(360deg);
+        }
+    }
+</style>
+
+<body>
+    <div>
+        <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2542755478,3406738638&fm=26&gp=0.jpg"
+            alt="">
+        <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2542755478,3406738638&fm=26&gp=0.jpg"
+            alt="">
+        <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2542755478,3406738638&fm=26&gp=0.jpg"
+            alt="">
+        <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2542755478,3406738638&fm=26&gp=0.jpg"
+            alt="">
+        <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2542755478,3406738638&fm=26&gp=0.jpg"
+            alt="">
+        <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2542755478,3406738638&fm=26&gp=0.jpg"
+            alt="">
+        <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2542755478,3406738638&fm=26&gp=0.jpg"
+            alt="">
+        <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2542755478,3406738638&fm=26&gp=0.jpg"
+            alt="">
+    </div>
+</body>
+
+</html>

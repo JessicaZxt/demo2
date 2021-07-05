@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    img {
+        display: block;
+        width: 500px;
+        height: 300px;
+    }
+</style>
+
+<body>
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+    <img data-src="http://pic32.nipic.com/20130816/13287978_102304113000_2.jpg" src="" alt="">
+</body>
+
+<script>
+    var lis = document.getElementsByTagName('img')
+    var num = lis.length
+    lazyload()
+    window.onscroll = lazyload;
+    function lazyload() {
+        for (var i = 0; i < num; i++) {
+            if (lis[i].offsetTop < (document.documentElement.clientHeight + document.documentElement.scrollTop)) {
+                lis[i].src = lis[i].getAttribute("data-src");
+            } else {
+                lis[i].src = ''
+            }
+        }
+    }
+
+</script>
+
+</html>

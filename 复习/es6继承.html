@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+  class Parent {
+    constructor(name, age) {
+      this.name = name
+      this.age = age
+    }
+    say() {
+      console.log('我是Parent类，我的名字是' + this.name + '我的年龄是' + this.age);
+    }
+  }
+
+  const p1 = new Parent('tom', 89)
+  p1.say() // 我是Parent类，我的名字是tom我的年龄是89
+
+  class Child extends Parent {
+    constructor(name, age, sex) {
+      super(name, age)
+      this.sex = sex
+      this.arr = [1, 2, 3, 4]
+    }
+    childSay() {
+      console.log('我是Child类，我的名字是' + this.name + '我的年龄是' + this.age + '我的性别是' + this.sex);
+    }
+  }
+
+  const c1 = new Child('jack', 18, '男')
+  const c2 = new Child('lisa', 20, '女')
+  c1.childSay() // 我是Child类，我的名字是jack我的年龄是18我的性别是男
+  c1.say() // 我是Parent类，我的名字是jack我的年龄是18
+
+  c1.arr.push(5)
+  console.log(c1.arr); // [1, 2, 3, 4, 5]
+  console.log(c2.arr); // [1, 2, 3, 4]
+
+  console.log(p1, c1);
+</script>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    const targetObj = {
+      tag: 'ul',
+      props: {
+        className: 'abc',
+        id: 'qwe'
+      },
+      children: [
+        {
+          tag: 'li',
+          props: {
+            className: 'li1',
+            style: 'color:blue',
+            on: {
+              'click': () => {
+                console.log(111);
+              }
+            }
+          },
+          children: 'a'
+        },
+        {
+          tag: 'li',
+          props: {
+            className: 'li2',
+            on: {
+              'click': () => {
+                console.log(222);
+              }
+            }
+          },
+          children: 'b'
+        }
+      ]
+    }
+
+    function render(target) {
+      const el = document.createElement(target.tag)
+      if (Object.prototype.toString.call(target.props) === '[object Object]' && target.props !== null) {
+        for (const key in target.props) {
+          if (key === 'on') {
+            const events = target.props['on']
+            for (const eventName in events) {
+              el.addEventListener(eventName, events[eventName])
+            }
+          } else {
+            el.setAttribute(key, target.props[key])
+          }
+        }
+        if (Array.isArray(target.children)) {
+          target.children.forEach(item => {
+            el.appendChild(render(item))
+          })
+        } else {
+          el.innerText = target.children
+        }
+      }
+      return el
+    }
+    const el = render(targetObj)
+    console.log(el);
+    document.getElementById('app').appendChild(el)
+  </script>
+</body>
+
+</html>

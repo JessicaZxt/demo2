@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+</body>
+<script>
+    Function.prototype.myCall = function (context, ...arr) {
+        if (context === null || context === undefined) {
+            context = window
+        } else {
+            context = Object(context)
+        }
+        const fn = Symbol("特殊属性")
+        context[fn] = this
+        let result = context[fn](...arr)
+        delete context[fn]
+        return result
+    }
+    /* 实例继承 */
+    // 将实例化的父构造函数赋值给子构造函数的原型，但是父级的属性会被共享
+    function father(name) {
+        this.name = name
+        this.arr = [11, 22, 33]
+    }
+    father.prototype.skill = function () {
+        console.log('1111')
+    }
+    function son(name) {
+        this.name = name
+    }
+    son.prototype = new father()
+    var son1 = new son('小明')
+    var son2 = new son('小王')
+    console.log(son1)
+    console.log(son2)
+    son1.skill()
+    son2.skill()
+    son1.arr.push(44)
+    console.log(son1.arr) //[11, 22, 33, 44]
+    console.log(son2.arr) //[11, 22, 33, 44]
+
+
+    /* 构造继承 */
+    // 在子类构造函数里面调用父类的属性，解决了属性共用的问题，但是这样无法继承父类原型上的方法
+    function father(type) {
+        this.type = type
+        this.arr = [11, 22, 33]
+    }
+
+    father.prototype.skill = function () {
+        console.log(222)
+    }
+    function son(name, type) {
+        this.name = name
+        father.call(this, type)
+    }
+    var son1 = new son('小明', 'a')
+    var son2 = new son('小王', 'b')
+    console.log(son1)
+    console.log(son2)
+    son1.arr.push(44)
+    console.log(son1.arr) //[11, 22, 33, 44]
+    console.log(son2.arr) //[11, 22, 33]
+    son1.skill() //报错
+    son2.skill() //报错
+
+
+    /* 混合继承 */
+    // 结合实例继承和构造继承，缺点每次实例化子构造函数的时候，都要调用一次父类
+    function father(type) {
+        this.type = type
+        this.arr = [11, 22, 33]
+    }
+
+    father.prototype.skill = function () {
+        console.log(222)
+    }
+    function son(name, type) {
+        this.name = name
+        father.call(this, type)
+    }
+    son.prototype = new father()
+    var son1 = new son('小明', 'a')
+    var son2 = new son('小王', 'b')
+    console.log(son1)
+    console.log(son2)
+    son1.arr.push(44)
+    console.log(son1.arr) //[11, 22, 33, 44]
+    console.log(son2.arr) //[11, 22, 33]
+    son1.skill() //222
+    son2.skill() //222
+
+    /* 寄生继承 */
+    // 存在引用类型共享的问题
+    var obj = {
+        name: '小明',
+        sex: '男',
+        arr: [11, 22, 33]
+    }
+    function people(obj) {
+        function f() { }
+        f.prototype = obj
+        return new f()
+    }
+
+    function createFun(obj) {
+        var o = people(obj)
+        o.skill = function () {
+            console.log(this.name + '打游戏')
+        }
+        return o
+    }
+
+    var son1 = createFun(obj)
+    var son2 = createFun(obj)
+    son1.name = '小花'
+    son1.arr.push(44)
+    console.log(son1.arr, son2.arr)
+    son1.skill() // 小花打游戏
+    son2.skill() // 小明打游戏
+
+    /* 寄生组合继承 */
+    function people(obj) {
+        function f() { }
+        f.prototype = obj
+        return new f()
+    }
+
+    function create(son, father) {
+        var p = people(father.prototype)
+        p.constructor = son
+        son.prototype = p
+
+    }
+    function father(name) {
+        this.name = name
+        this.arr = [11, 22, 33]
+    }
+    father.prototype.skill = function () {
+        console.log(this.name + 'haha')
+    }
+
+    function son(name) {
+        this.hello = "aa"
+        // this.name = name
+        father.myCall(this, name)
+    }
+    create(son, father)
+    var aa = new son('小花')
+    var bb = new son('小明')
+    aa.skill()
+    aa.arr.push(44)
+    bb.arr.push(55)
+    console.log(aa, bb)
+
+
+</script>
+
+</html>

@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#login {
+    position: relative;
+}
+
+.login-banner {
+    background: url(./images/banner1.jpg) no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    filter: blur(3px);
+}
+
+.login-user {
+    height: 350px;
+    width: 300px;
+    position: absolute;
+    top: 20%;
+    right: 15%;
+    background-color: #fff;
+    opacity: 0.9;
+    border-radius: 8px;
+}
+
+.input-group-addon {
+    background-color: #fff;
+    color: rebeccapurple;
+}
+
+.input-group {
+    margin-bottom: 22px;
+}
+
+.input-group-addon, .form-control {
+    border: 1px solid #eee;
+}
+
+.fa {
+    display: table-cell;
+}
+
+.form {
+    padding: 0 15px;
+    text-align: center;
+}
+
+.title {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 26px;
+    color: #333;
+    margin: 10px 10px 35px 10px;
+}
+
+.login-btn {
+    width: 100%;
+}
+
+.login-btn:hover {
+    background-color: #eee;
+}
+
+.register {
+    text-align: right;
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+}
+
+.register-btn {
+    font-size: 14px;
+    color: #7344a2;
+    margin: 10px 0;
+}
+
+.register-btn:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #333;
+}

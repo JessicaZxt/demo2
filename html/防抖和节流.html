@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入" id="text">
+    <button id="btn">点我啊</button>
+</body>
+<script src="./防抖和节流封装函数.js"></script>
+<script>
+    /* 防抖 */
+    let input = document.getElementById('text')
+    let time;
+    function log() {
+        console.log(this,111)
+    }
+
+    /* input.onkeyup = function () {
+        if (time) {
+            clearTimeout(time)
+        }
+        time = setTimeout(function () {
+            console.log(111);
+
+        }, 1000)
+
+    } */
+    input.onkeyup = debounce(log, 2000, false)
+
+    /* 节流 */
+    let btn = document.getElementById('btn')
+    /* let time1
+    let last
+    let now = new Date() */
+    /* btn.onclick = function () {
+        if (last && now - last < 200) {
+            clearTimeout(time1)
+        }
+        time1 = setTimeout(function () {
+            last = new Date()
+            console.log('点我了');
+        }, 1000)
+    } */
+    // btn.onclick = Throttle(log, 1000)
+    btn.onclick = debounce(log, 1000)
+
+    
+
+</script>
+
+</html>
